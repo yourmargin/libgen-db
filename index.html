@@ -1,0 +1,78 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>LibGen DB Explorer</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/@highlightjs/cdn-assets@11.7.0/styles/github-dark.min.css"
+    />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/sql.min.js"></script>
+    <script>
+      hljs.highlightAll();
+    </script>
+    <link
+      rel="icon"
+      href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>👨‍🚀</text></svg>"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <h1>LibGen DB Explorer</h1>
+    <p>
+      Query the LibGen database straight from your browser using
+      <a href="https://github.com/phiresky/sql.js-httpvfs">sql.js-httpvfs</a>!
+    </p>
+    <p>You can query the db using any read SQL statement.</p>
+    <details>
+      <summary>Examples:</summary>
+      <ul>
+        <li>
+          List all table names:
+          <pre><code class="language-sql">SELECT name FROM sqlite_master
+WHERE type = 'table';</code></pre>
+        </li>
+        <li>
+          List columns:
+          <pre><code class="language-sql">PRAGMA table_info('books');</code></pre>
+        </li>
+        <li>
+          Get 3 items from the table:
+          <pre><code class="language-sql">SELECT * FROM books LIMIT 3;</code></pre>
+        </li>
+        <li>
+          Search for a book using full text search:
+          <pre><code class="language-sql">SELECT * FROM books
+WHERE id IN (
+  SELECT rowid FROM books_fts
+  WHERE books_fts MATCH 'title:Harry Potter* OR author: JK Rolling*'
+)
+LIMIT 10;</code></pre>
+        </li>
+      </ul>
+    </details>
+    <textarea id="query" placeholder="select * from books limit 3;">
+  select * from books limit 3;
+    </textarea>
+    <button title="[cmd + Enter]">Go!</button>
+    <code>[cmd + Enter]</code>
+    <p id="message" class="message hidden"></p>
+    <div id="spinner" style="text-align: center" class="hidden">
+      <img src="3-dots-fade.svg" width="50" />
+    </div>
+    <table>
+      <thead></thead>
+      <tbody></tbody>
+    </table>
+    <script src="./dist/bundle.js"></script>
+  </body>
+</html>
