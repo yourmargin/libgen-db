@@ -30,7 +30,7 @@ async function runQuery() {
           requestChunkSize: 1024,
           databaseLengthBytes: 1421419520,
           serverChunkSize: 20971520,
-          urlPrefix: "db/db.sqlite3.",
+          urlPrefix: "../db/db.sqlite3.",
           suffixLength: 3,
         },
       },
