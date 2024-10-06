@@ -1,10 +1,11 @@
-
 {
+  "dbConfig": {
     "serverMode": "chunked",
     "requestChunkSize": 1024,
-    "databaseLengthBytes": 2367559680,
+    "databaseLengthBytes": 1421419520,
     "serverChunkSize": 20971520,
-    "urlPrefix": "db.sqlite3.",
+    "urlPrefix": "https://yourmargin.github.io/libgen-db/db/db.sqlite3.",
     "suffixLength": 3
+  },
+  "images": "https://images.thebookbay.org/database/covers/${id_group}/${md5}-g.jpg"
 }
-
