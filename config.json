@@ -7,6 +7,6 @@
     "urlPrefix": "https://yourmargin.github.io/libgen-db/db/db.sqlite3.",
     "suffixLength": 3
   },
-  "images": "https://images.thebookbay.org/covers/{{ md5 | downcase | slice: 0 }}/{{ md5 | downcase | slice: 0 }}/{{ md5 | downcase | slice: 0 }}/{{ md5 | downcase }}",
+  "images": "https://images.thebookbay.org/covers/{{ md5 | downcase | slice: 0 }}/{{ md5 | downcase | slice: 1 }}/{{ md5 | downcase | slice: 2 }}/{{ md5 | downcase }}",
   "tableName": "books"
 }
